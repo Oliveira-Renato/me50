@@ -1,2 +1,2 @@
-# wiki-project
-Wikipedia-like online encyclopedia.
+# Wiki-Project
+### A Wikipedia-like online encyclopedia.
