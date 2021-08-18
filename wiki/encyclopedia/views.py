@@ -10,6 +10,13 @@ def index(request):
     })
 
 def title(request):
+    #TRY TO USE THIS FUNCTION
+    #def pegaNome(nome): <---nome do titulo da pesquisa 
+    #   for i in listNome:
+    #       if i == nome:
+    #           util.get_entry(nome)
+    #       else:
+    #           return Null
     return render(request,"encyclopedia/title.html", {
         "titles": markdown2.markdown(util.get_entry(teste[0]))
     })
