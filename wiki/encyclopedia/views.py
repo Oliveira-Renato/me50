@@ -1,16 +1,17 @@
+from django.http import request, HttpResponse
 from django.shortcuts import render
 import markdown2
 from . import util
 
-teste = ['CSS','Django','Git','HTML','Python']
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
-        "entries": util.list_entries()
+        "entries":util.list_entries()
     })
 
-def title(request):
+def title(request, name):
     return render(request,"encyclopedia/title.html", {
-        "titles": markdown2.markdown(util.get_entry(teste[0]))
+        "content": markdown2.markdown(util.get_entry(name)),
+        "name": name.upper()
     })
 
