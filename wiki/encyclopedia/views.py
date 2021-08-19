@@ -1,4 +1,4 @@
-from django.http import request, HttpResponse
+from django.http import request, HttpResponseNotFound
 from django.shortcuts import render
 import markdown2
 from . import util
