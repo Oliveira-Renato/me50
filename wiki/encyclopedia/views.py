@@ -10,18 +10,24 @@ def index(request):
     })
 
 
-def title(request, name):
+def page(request, name):
     content = util.get_entry(name)
 
     for item in util.list_entries():
         if name.lower() == item.lower():
             name = item
-            return render(request, "encyclopedia/title.html", {
+            return render(request, "encyclopedia/page.html", {
             "title":name,
             "content": markdown2.markdown(content)
         })
         elif not util.get_entry(name):
             raise Http404("Page Not Found")
+
+        elif request.method == 'POST':
+            return render(request, "encyclopedia/index.html", {
+            "title":name
+            })
+        
 
 
 
