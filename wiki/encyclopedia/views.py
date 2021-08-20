@@ -1,6 +1,6 @@
 from django.http import request, HttpResponse, Http404
 from django.shortcuts import render
-from django import forms
+
 import markdown2
 from . import util
 
@@ -11,27 +11,25 @@ def index(request):
     })
 
 
-
 def title(request, name):
-    if request.method == 'POST':
-        content = util.get_entry(name)
-        return render(request, "encyclopedia/title.html", {
-            "title": name,
-            "content": content
-        })
+    content = util.get_entry(name)
 
     for item in util.list_entries():
         if name.lower() == item.lower():
             name = item
+            return render(request, "encyclopedia/title.html", {
+            "title":name,
+            "content": markdown2.markdown(content)
+        })
+        elif not util.get_entry(name):
+            raise Http404("Page does not exist")
 
-    if not util.get_entry(name):
-        raise Http404("Page does not exist")
     
-    page = markdown2.markdown(util.get_entry(name))#convert the MD tex into HTML
-    return render(request, "encyclopedia/title.html", {
-        "title":name,
-        "content": page
-    })
+
+    
+
+
+
 
 
 
