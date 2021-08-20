@@ -1,6 +1,5 @@
 from django.http import request, HttpResponse, Http404
 from django.shortcuts import render
-
 import markdown2
 from . import util
 
@@ -22,7 +21,9 @@ def title(request, name):
             "content": markdown2.markdown(content)
         })
         elif not util.get_entry(name):
-            raise Http404("Page does not exist")
+            raise Http404("Page Not Found")
+
+
 
     
 
