@@ -30,8 +30,10 @@ def page(request, name):
 def searchPage(request):
     if request.method == 'POST':
         title = request.POST.get('q')
-        return HttpResponseRedirect(reverse("page", args=(title,)))
-   
+        
+        if title.lower() in [item.lower() for item in util.list_entries()]:
+            return HttpResponseRedirect(reverse("page", args=(title,)))
+        
 
         
         
