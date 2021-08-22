@@ -33,7 +33,17 @@ def searchPage(request):
         
         if title.lower() in [item.lower() for item in util.list_entries()]:
             return HttpResponseRedirect(reverse("page", args=(title,)))
-        
+        else:
+            results = []
+            for item in util.list_entries():
+                if title.lower() in item.lower():
+                    results.append(item)
+            
+            return render(request, "encyclopedia/searchPage.html", {
+                "entries": results
+                })
+                    
+            
 
         
         
