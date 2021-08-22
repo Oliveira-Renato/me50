@@ -1,2 +1,5 @@
 # Wiki-Project
-### A Wikipedia-like online encyclopedia.
+## Creating a  Wikipedia-like encyclopedia using Python and it's framework Django.
+
+:rocket: :rocket: :rocket:
+ 
