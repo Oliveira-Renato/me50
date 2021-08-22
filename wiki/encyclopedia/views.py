@@ -7,9 +7,6 @@ from django.urls import reverse
 import markdown2
 from . import util
 
-#search form
-class NewSearchForm(forms.Form):
-    search = forms.CharField(label="Search",required= False)
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
