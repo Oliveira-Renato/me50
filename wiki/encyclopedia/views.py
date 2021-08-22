@@ -1,8 +1,15 @@
+from django import http
 from django.http import request, HttpResponse, Http404
-from django.shortcuts import render
+from django.http.response import HttpResponseRedirect
+from django.shortcuts import redirect, render
+from django import forms
+from django.urls import reverse
 import markdown2
 from . import util
 
+#search form
+class NewSearchForm(forms.Form):
+    search = forms.CharField(label="Search",required= False)
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
@@ -23,10 +30,22 @@ def page(request, name):
         elif not util.get_entry(name):
             raise Http404("Page Not Found")
 
-        elif request.method == 'POST':
-            return render(request, "encyclopedia/index.html", {
-            "title":name
-            })
+def searchPage(request):
+    if request.method == 'POST':
+        title = request.POST.get('q')
+        return HttpResponseRedirect(reverse("page", args=(title,)))
+   
+
+        
+        
+
+            
+            
+                    
+
+
+   
+
         
 
 
