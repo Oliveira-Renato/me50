@@ -42,6 +42,11 @@ def searchPage(request):
             return render(request, "encyclopedia/searchPage.html", {
                 "entries": results
                 })
+
+def create(request):
+    return render(request, "encyclopedia/create.html", {
+                "entries": None
+                })
                     
             
 
