@@ -47,9 +47,9 @@ def create(request):
     if request.method == 'post':
         title = request.POST.get('tito')
         content = request.POST.get('content')
-        if pa.lower() not in [x.lower() for x in util.list_entries()]:
-            util.save_entry(pa, pu)
-            return HttpResponseRedirect(reverse("page", args=(pa,)))
+        if title.lower() not in [x.lower() for x in util.list_entries()]:
+            util.save_entry(title, content)
+            return HttpResponseRedirect(reverse("page", args=(title,)))
         else:
             return HttpResponse('vixi')
     else:

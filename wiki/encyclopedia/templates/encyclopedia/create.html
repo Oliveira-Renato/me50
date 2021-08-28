@@ -8,7 +8,7 @@
     <h1>Make a new page</h1>
 
     <form action="{% url 'create' %}" method="POST">
-      
+        {% csrf_token %}
         <label for="inp-title">Title</label>
             <input type="text" name="title" id="inp-title" value={{title}}>
         <label for="content-text">Content</label>
