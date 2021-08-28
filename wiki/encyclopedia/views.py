@@ -44,8 +44,8 @@ def searchPage(request):
                 })
 
 def create(request):
-    if request.method == 'post':
-        title = request.POST.get('tito')
+    if request.method == 'POST':
+        title = request.POST.get('title')
         content = request.POST.get('content')
         if title.lower() not in [x.lower() for x in util.list_entries()]:
             util.save_entry(title, content)
