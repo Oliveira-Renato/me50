@@ -51,7 +51,9 @@ def create(request):
             util.save_entry(title, content)
             return HttpResponseRedirect(reverse("page", args=(title,)))
         else:
-            return HttpResponse('vixi')
+            html = "<html><body><h2>Page '%s' already exist!</h2></body></html>" % title
+            return HttpResponse(html)
+            
     else:
         return render(request, "encyclopedia/create.html")
 
