@@ -44,12 +44,22 @@ def searchPage(request):
                 })
 
 def create(request):
-    return render(request, "encyclopedia/create.html", {
-                "entries": None
-                })
-                    
-            
+    if request.method == 'post':
+        title = request.POST.get('tito')
+        content = request.POST.get('content')
+        if pa.lower() not in [x.lower() for x in util.list_entries()]:
+            util.save_entry(pa, pu)
+            return HttpResponseRedirect(reverse("page", args=(pa,)))
+        else:
+            return HttpResponse('vixi')
+    else:
+        return render(request, "encyclopedia/create.html")
 
+
+
+#if title.lower() not in [item.lower() for item in util.list_entries()]:
+           # util.save_entry(title, content)
+           # return HttpResponseRedirect(reverse("page",args=(title,))) 
         
         
 
