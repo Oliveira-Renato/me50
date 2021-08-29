@@ -51,49 +51,11 @@ def create(request):
             util.save_entry(title, content)
             return HttpResponseRedirect(reverse("page", args=(title,)))
         else:
-            html = "<html><body><h2>Page '%s' already exist!</h2></body></html>" % title
+            html = '<html><body><h1 style="color: #b22222;">Page "%s" already exist!</h1></body></html>' % title
             return HttpResponse(html)
             
     else:
         return render(request, "encyclopedia/create.html")
 
 
-
-#if title.lower() not in [item.lower() for item in util.list_entries()]:
-           # util.save_entry(title, content)
-           # return HttpResponseRedirect(reverse("page",args=(title,))) 
-        
-        
-
-            
-            
-                    
-
-
-   
-
-        
-
-
-
-    
-
-    
-
-
-
-
-
-
-
-
-
-    #for  item in util.list_entries() :
-     #   if name.lower() == item.lower():
-     #        return render(request,"encyclopedia/title.html", {
-     #       "content": markdown2.markdown(util.get_entry(name)),
-    #      "name": name.upper()
-    #    })
-     #   else:
-      #      return Http404('PAGINA NÃO ENCONTRADA!')
-    
+ 

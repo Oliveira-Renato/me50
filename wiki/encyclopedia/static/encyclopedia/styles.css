@@ -35,3 +35,16 @@ textarea {
 .sidebar h2 {
     margin-top: 5px;
 }
+.input-group {
+    width: 80% !important;
+}
+
+.input-group-2 {
+    width: 30% !important;
+}
+.btn-marg{
+    margin-top: 30px;
+}
+.error-h2{
+    color: red !important;
+}

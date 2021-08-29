@@ -5,16 +5,18 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Make a new page</h1>
+    <h1>New page</h1>
 
     <form action="{% url 'create' %}" method="POST">
         {% csrf_token %}
-        <label for="inp-title">Title</label>
-            <input type="text" name="title" id="inp-title" value={{title}}>
-        <label for="content-text">Content</label>
-            <textarea name="content" id="content-text" cols="20" rows="10" placeholder="#title&#10 body...">{{content}}</textarea>
-        <button type="submit">Save</button>
+        <div class="input-group mb-3 input-group-2">
+            <span class="input-group-text" id="inputGroup-sizing-small">Title</span>
+            <input class="form-control" type="text" name="title" value={{title}}>
+        </div>
+        <div class="input-group" >
+            <textarea  class="form-control" name="content" id="content-text" cols="30" rows="10" placeholder="#title&#10&#10body...">{{content}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-dark btn-marg">Save Page</button>
 
     </form>
-
 {% endblock %}
