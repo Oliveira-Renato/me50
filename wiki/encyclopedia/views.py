@@ -6,12 +6,15 @@ from django import forms
 from django.urls import reverse
 import markdown2
 from . import util
+import random
+
 
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
         "entries":util.list_entries()
     })
+
 
 
 def page(request, name):
@@ -32,10 +35,8 @@ def page(request, name):
         })
         elif not util.get_entry(name):
             raise Http404("Page Not Found")
-    
-    
         
-        
+
 
 def searchPage(request):
     if request.method == 'POST':
@@ -53,6 +54,8 @@ def searchPage(request):
                 "entries": results
                 })
 
+
+
 def create(request):
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -66,6 +69,8 @@ def create(request):
             
     else:
         return render(request, "encyclopedia/create.html")
+
+
 
 def edit(request):
     if request.method == 'POST':
