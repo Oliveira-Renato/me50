@@ -1,3 +1,8 @@
 # :mag_right: Wiki-Project :mag:
-### Creating a  Wikipedia-like encyclopedia using Python and it's framework Django.
+### A Wikipedia-like encyclopedia website.
+#### Built using:
+* Python
+* Django
+* HTML
+* CSS
 # :rocket: :rocket: :rocket:
