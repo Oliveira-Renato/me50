@@ -5,6 +5,13 @@
 {% endblock %}
 
 {% block body %}
+    <form action="{% url 'page' title %}" method="POST">
+        {% csrf_token%}
+        <div class="btn-place">
+            <button type="submit" class="btn btn-dark btn-marg">Edit</button>
+        </div>
+    </form>
+
     <p>{{content|safe}}</p>
 
 {% endblock %}

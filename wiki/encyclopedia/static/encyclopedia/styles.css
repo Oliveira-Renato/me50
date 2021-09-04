@@ -17,6 +17,7 @@ textarea {
 }
 
 .main {
+    max-width: 80%;
     padding: 10px;
 }
 
@@ -47,4 +48,7 @@ textarea {
 }
 .error-h2{
     color: red !important;
+}
+.btn-place{
+    text-align: right;
 }

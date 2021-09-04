@@ -17,6 +17,12 @@ def index(request):
 def page(request, name):
     content = util.get_entry(name)
 
+    if request.method == 'POST':
+        return render(request, 'encyclopedia/edit.html', {
+            'title':name,
+            'content':content
+        })
+
     for item in util.list_entries():
         if name.lower() == item.lower():
             name = item
@@ -26,6 +32,10 @@ def page(request, name):
         })
         elif not util.get_entry(name):
             raise Http404("Page Not Found")
+    
+    
+        
+        
 
 def searchPage(request):
     if request.method == 'POST':
@@ -57,5 +67,11 @@ def create(request):
     else:
         return render(request, "encyclopedia/create.html")
 
+def edit(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        util.save_entry(title, content)
+        return HttpResponseRedirect(reverse("page", args=(title,)))
 
  
