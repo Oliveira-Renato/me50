@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="{% static 'encyclopedia/styles.css' %}">
     </head>
     <body>
-        <div class="row">
+        <div class="row w-100">
             <div class="sidebar col-lg-2 col-md-3">
                 <img class="img"src="{% static 'encyclopedia/wikipedia.png' %}"width=100px><span class="h1">Wiki</span>
                 <form action="{% url 'searchPage' %}" method="POST">
